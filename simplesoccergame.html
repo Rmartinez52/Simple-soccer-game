@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Soccer Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #field {
+            width: 600px;
+            height: 400px;
+            background-color: green;
+            position: relative;
+            margin: 20px auto;
+        }
+        #ball {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #player {
+            width: 50px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Soccer Game</h1>
+    <div id="field">
+        <div id="ball"></div>
+        <div id="player"></div>
+    </div>
+    <script>
+        // JavaScript for player movement
+        const player = document.getElementById('player');
+        const field = document.getElementById('field');
+        
+        // Event listener for keydown
+        document.addEventListener('keydown', function(event) {
+            if(event.key === 'ArrowLeft' && player.offsetLeft > 0) {
+                player.style.left = player.offsetLeft - 10 + 'px';
+            }
+            if(event.key === 'ArrowRight' && player.offsetLeft + player.offsetWidth < field.offsetWidth) {
+                player.style.left = player.offsetLeft + 10 + 'px';
+            }
+        });
+    </script>
+</body>
+</html>
